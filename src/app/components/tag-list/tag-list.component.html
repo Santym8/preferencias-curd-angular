@@ -1,0 +1,33 @@
+<div class="container custom-container-2">
+    <div class="no-data text-center">
+        <button class="btn btn-outline-primary" routerLink="/create-tag">Crear Tag</button>
+    </div>
+
+    <div class="mb-3"></div>
+
+    <div *ngIf="tags.length !== 0">
+        <h3 class="mb-3 text-center">Lista de Tags</h3>
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let tag of tags">
+                        <td>{{tag.id}}</td>
+                        <td>{{tag.name}}</td>
+                        <td>
+                            <span class="edit" routerLink="/edit-tag/{{tag.id}}">Editar</span>
+
+                            <span class="delete" (click)="deleteTag(tag.id)">Eliminar</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
